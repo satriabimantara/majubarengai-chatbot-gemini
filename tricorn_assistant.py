@@ -13,7 +13,17 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 from langchain.prompts import PromptTemplate
 import tempfile
+import datetime
 load_dotenv()
+
+# Tentukan tanggal takedown yang Anda inginkan
+# GANTI SESUAI TANGGAL 7 HARI KE DEPAN
+TAKEDOWN_DATE = datetime.date(2025, 10, 10)
+
+if datetime.date.today() >= TAKEDOWN_DATE:
+    st.error("🛑 Aplikasi ini telah melewati masa uji coba dan tidak lagi aktif. Mohon hubungi pemilik proyek.")
+    # Anda dapat menghentikan eksekusi logic LLM di sini, atau:
+    # st.stop() # Menghentikan seluruh aplikasi
 
 # Inisialisasi Klien Gemini
 try:
